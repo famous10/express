@@ -1,0 +1,41 @@
+<div class="col-md-5">
+<div class="card">
+
+    <h4 class="title">TODOS</h4>
+    {{#if count}}
+       <table  style="padding-left: 10px; padding-right:10px;" class="table table-striped">
+        {{/if}} 
+            <tbody>
+              {{# each todos}}
+                  <tr>
+                        <td>
+                             <input type="checkbox" name="check">
+                        </td>
+                        <td>
+                              {{this.name}}
+                        </td>
+                  </tr>
+                  <tr>
+                        <td>
+                             {{this:date}}
+                        </td>
+                        <td>
+                              <button class="btn btn-danger  btn-sm delete" data-id="{{this._id}}" data-name="{{this.name}}">Delete</button>
+                              
+                        </td>
+                  </tr>
+                  {{/each}}
+            </tbody>
+      </table>
+      <form action="/todo" method="POST">
+            <div class="form-row">
+                  <div class="col-10 pr-0">
+                        <input type="text" name="todo" class="form-control rounded-0" placeholder="Enter Action" required="required">
+                  </div>
+                  <div class="col-2 pr-0">
+                        <button class="btn btn-dark btn-dark btn-block rounded-0">Add</button>
+                  </div>
+            </div>
+      </form>
+</div>
+</div>
